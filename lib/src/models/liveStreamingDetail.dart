@@ -1,3 +1,13 @@
+// To parse this JSON data, do
+//
+//     final liveStreamingDetail = liveStreamingDetailFromJson(jsonString);
+
+import 'dart:convert';
+
+LiveStreamingDetail liveStreamingDetailFromJson(String str) => LiveStreamingDetail.fromJson(json.decode(str));
+
+String liveStreamingDetailToJson(LiveStreamingDetail data) => json.encode(data.toJson());
+
 class LiveStreamingDetail {
   LiveStreamingDetail({
     this.actualStartTime,

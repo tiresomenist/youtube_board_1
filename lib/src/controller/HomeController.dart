@@ -12,7 +12,7 @@ class HomeController extends GetxController{
   }
   void _videoLoad()async{
     YoutubeVideoResult? youtubeVideoResult = await YoutubeRepository.to.loadVideos();
-    if(youtubeVideoResult!=null && youtubeVideoResult.items !=null && youtubeVideoResult.items!.length>0){
+    if(youtubeVideoResult!=null && youtubeVideoResult.items !=null && youtubeVideoResult.items!.isNotEmpty){
       youtubeResult(youtubeVideoResult);
     }
   }

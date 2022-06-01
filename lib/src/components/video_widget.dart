@@ -13,10 +13,10 @@ class VideoWidget extends StatefulWidget {
 }
 
 class _VideoWidgetState extends State<VideoWidget>{
-  late liveStreamingDetailController _liveStreamDetailController;
+  late LiveStreamingDetailController _liveStreamDetailController;
   @override
   void initState(){
-    _liveStreamDetailController = Get.put(liveStreamingDetailController(video: widget.video),tag:widget.video?.id.videoId);
+    _liveStreamDetailController = Get.put(LiveStreamingDetailController(video: widget.video),tag:widget.video?.id.videoId);
     super.initState();
   }
   Widget _thumbnail() {

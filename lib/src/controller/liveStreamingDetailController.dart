@@ -6,11 +6,11 @@ import 'package:youtube_board_app/src/repository/youtube_repository.dart';
 import '../models/liveStreamingDetail.dart';
 import '../models/video.dart';
 
-class liveStreamingDetailController extends GetxController{
-  @override
+class LiveStreamingDetailController extends GetxController{
   Video? video;
-  liveStreamingDetailController({this.video});
+  LiveStreamingDetailController({this.video});
   Rx<LiveStreamingDetail> liveStreamingDetails = LiveStreamingDetail().obs;
+  @override
   void onInit()async{
     LiveStreamingDetail? loadDetails = await YoutubeRepository.to.getLiveStreamingDetailById(video?.id.videoId);
     liveStreamingDetails(loadDetails);
