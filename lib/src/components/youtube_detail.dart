@@ -1,31 +1,26 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:youtube_board_app/src/controller/youtube_detail_controller.dart';
 
-class YouTubeDetail extends StatelessWidget {
+class YouTubeDetail extends GetView<YouTubeDetailController> {
   const YouTubeDetail({Key? key}) : super(key: key);
 
   Widget _titleZone() {
     return Container(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        child: Column(
+        child:Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
-              "유튜브 제목",
+            Text(
+              controller.title,
               //유튜브 제목 검색해다 뽑아와야됨.
               style: TextStyle(fontSize: 15),
             ),
             Row(
               children: [
                 Text(
-                  "현재 0000명 시청 중",
-                  style: TextStyle(
-                    fontSize: 13,
-                  ),
-                ),
-                const Text(" · "),
-                Text(
-                  "2022-05-20",
+                  controller.viewerCount,
                   style: TextStyle(
                     fontSize: 13,
                   ),
@@ -33,7 +28,8 @@ class YouTubeDetail extends StatelessWidget {
               ],
             )
           ],
-        ));
+        ),
+      );
   }
 
   Widget _ownerZone() {
@@ -44,6 +40,7 @@ class YouTubeDetail extends StatelessWidget {
           CircleAvatar(
             radius: 30,
             backgroundColor: Colors.grey.withOpacity(0.5),
+            backgroundImage: Image.network(controller.youtuberThumnail).image,
           ),
           SizedBox(
             width: 15,
@@ -53,11 +50,11 @@ class YouTubeDetail extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                "유튜브 이름",
+                controller.youtuberName,
                 style: TextStyle(fontSize: 18),
               ),
               Text(
-                "구독자 0000명",
+                controller.youtuberSubscribers,
                 style: TextStyle(fontSize: 14),
               ),
             ],
@@ -106,10 +103,18 @@ class YouTubeDetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            height: 250,
             color: Colors.grey.withOpacity(0.5),
+            child: CachedNetworkImage(
+              imageUrl:controller.video!.snippet.thumbnails.medium.url,
+              placeholder:(context,url)=>Container(
+                height: 230,
+                child: Center(child: CircularProgressIndicator()),
+              ),
+              fit: BoxFit.fitWidth,
+            ),
           ),
           Expanded(child: _description())
         ],

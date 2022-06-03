@@ -36,6 +36,7 @@ class Channel extends StatelessWidget {
 
   Widget _bodyWidget() {
     return GridView.builder(
+        padding: EdgeInsets.only(top:20), // 상단패딩
         itemCount: 15,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3, mainAxisSpacing: 8, crossAxisSpacing: 10),

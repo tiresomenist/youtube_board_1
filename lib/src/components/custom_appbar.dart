@@ -9,9 +9,10 @@ class CustomAppBar extends StatelessWidget {
   Widget _logo() {
     return Image.asset(
       "assets/images/logo.png",
-      width: 130,
+      height: 24,
     );
   }
+
 
   Widget _actions() {
     return Row(
@@ -21,27 +22,33 @@ class CustomAppBar extends StatelessWidget {
             onTap: () {
               Get.isDarkMode
                   ? Get.changeTheme(
-                      MyThemes.lightTheme,
-                    )
+                MyThemes.lightTheme,
+              )
                   : Get.changeTheme(MyThemes.darkTheme);
+
             },
             child: SizedBox(
-              width: 23,
-              height: 23,
-              child: SvgPicture.asset("assets/svg/icons/moon_filled.svg"),
+
+              width: 28,
+              height: 28,
+              child: SvgPicture.asset("assets/svg/icons/brightness.svg", color:Theme.of(context).indicatorColor), //다크모드용 색상
             ),
           );
         }),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: GestureDetector(
-            onTap: () {},
-            child: SizedBox(
-              width: 30,
-              height: 30,
-              child: SvgPicture.asset("assets/svg/icons/search.svg"),
-            ),
-          ),
+          padding: const EdgeInsets.only(left: 20,right: 8),
+          child: Builder(builder: (context) {
+            return GestureDetector(
+
+              onTap: () {},
+              child: SizedBox(
+                width: 28,
+                height: 28,
+                child: SvgPicture.asset(
+                  "assets/svg/icons/google-search.svg", color: Theme.of(context).primaryColorLight,), //아이콘용색상
+              ),
+            );
+          }),
         )
       ],
     );

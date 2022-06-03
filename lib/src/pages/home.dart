@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Obx(()=>CustomScrollView(
+        controller: controller.scrollController,
         slivers: [
           const SliverAppBar(
             title: CustomAppBar(),
@@ -27,7 +28,7 @@ class _HomeState extends State<Home> {
               (context, index) {
                 return GestureDetector(
                   onTap: () {
-                    Get.toNamed("/detail/235987");
+                    Get.toNamed("/detail/${controller.youtubeResult.value.items?[index].id.videoId}");
                   },
                   child: VideoWidget(video: controller.youtubeResult.value.items![index]),
                 );

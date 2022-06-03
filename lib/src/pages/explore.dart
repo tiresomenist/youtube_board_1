@@ -6,7 +6,7 @@ import 'package:youtube_board_app/src/pages/ranking.dart';
 class Explore extends StatelessWidget {
   Explore({Key? key}) : super(key: key);
 
-  final choices = ["카테고리", "랭킹"];
+  final choices = ["ㅤ카테고리ㅤ", "ㅤㅤ랭킹ㅤㅤ"]; //tapbar의 기능 한계로 임시로 한 작업.
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class Explore extends StatelessWidget {
                 isScrollable: true,
                 indicatorColor: Colors.red,
                 indicatorWeight: 3.0,
-                labelPadding: const EdgeInsets.symmetric(horizontal: 35.0),
+                labelPadding: const EdgeInsets.symmetric(horizontal: 18.0), //tapbar의 기능 한계로 임시로 한 작업.
               ),
             ),
           ),

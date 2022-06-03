@@ -7,7 +7,7 @@ import 'package:youtube_board_app/src/pages/reserved.dart';
 class Bookmark extends StatelessWidget {
   Bookmark({Key? key}) : super(key: key);
 
-  final choices = ["라이브", "예약됨", "전체 채널"];
+  final choices = ["ㅤㅤ라이브ㅤㅤ", "ㅤㅤ예약됨ㅤㅤ", "ㅤ 전체 채널 ㅤ"]; //tapbar의 기능 한계로 임시로 한 작업.
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class Bookmark extends StatelessWidget {
                 isScrollable: true,
                 indicatorColor: Colors.red,
                 indicatorWeight: 3.0,
-                labelPadding: const EdgeInsets.symmetric(horizontal: 35.0),
+                labelPadding: const EdgeInsets.symmetric(horizontal: 12.0), //tapbar의 기능 한계로 임시로 한 작업.
               ),
             ),
           ),
@@ -41,3 +41,4 @@ class Bookmark extends StatelessWidget {
     );
   }
 }
+

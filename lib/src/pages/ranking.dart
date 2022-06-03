@@ -76,9 +76,17 @@ class Ranking extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+
           title: Text(
             "현재 실시간 랭킹",
           ),
+          //가독성 높이려고 노력한 모습
+          // shape: const RoundedRectangleBorder(
+          //   borderRadius: BorderRadius.only(
+          //     bottomRight: Radius.circular(0),
+          //   )
+          // ),
+          // backgroundColor: Colors.red[400],
         ),
         body: _bodyWidget());
   }
