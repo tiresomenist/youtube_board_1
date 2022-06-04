@@ -38,6 +38,8 @@ dependencies:
   get: 3.24.0
   flutter_svg: ^1.0.3
   cached_network_image: ^3.2.1
+  url_launcher: ^6.1.2
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:

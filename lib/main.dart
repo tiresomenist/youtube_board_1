@@ -6,6 +6,8 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:youtube_board_app/src/app.dart';
 import 'package:youtube_board_app/src/binding/init_binding.dart';
 import 'package:youtube_board_app/src/components/youtube_detail.dart';
+import 'package:youtube_board_app/src/controller/youtube_search_controller.dart';
+import 'package:youtube_board_app/src/pages/search.dart';
 import 'package:youtube_board_app/src/provider/theme_provider.dart';
 import '../src/controller/youtube_detail_controller.dart';
 void main() {
@@ -27,7 +29,20 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       getPages: [
         GetPage(name: "/", page: () => const App()),
-        GetPage(name: "/detail/:videoId", page: () => const YouTubeDetail(),binding: BindingsBuilder(()=>Get.lazyPut<YouTubeDetailController>(() => YouTubeDetailController()))),
+        GetPage(name: "/detail/:videoId",
+            page: () => const YouTubeDetail(),
+            binding: BindingsBuilder(
+                    ()=>Get.lazyPut<YouTubeDetailController>(
+                            () => YouTubeDetailController()),
+            ),
+        ),
+        GetPage(name: "/search",
+          page: () => const YoutubeSearch(),
+          binding: BindingsBuilder(
+                ()=>Get.lazyPut<YoutubeSearchController>(
+                    () => YoutubeSearchController()),
+          ),
+        ),
       ],
     );
   }

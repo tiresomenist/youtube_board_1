@@ -40,7 +40,9 @@ class CustomAppBar extends StatelessWidget {
           child: Builder(builder: (context) {
             return GestureDetector(
 
-              onTap: () {},
+              onTap: () {
+                Get.toNamed("/search");
+              },
               child: SizedBox(
                 width: 28,
                 height: 28,

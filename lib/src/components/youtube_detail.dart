@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_board_app/src/controller/youtube_detail_controller.dart';
 
 class YouTubeDetail extends GetView<YouTubeDetailController> {
@@ -72,7 +73,9 @@ class YouTubeDetail extends GetView<YouTubeDetailController> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () async {
+            await launchUrl(Uri.parse('https://www.youtube.com/watch?v=${controller.video?.id.videoId}'));
+          },
           child: Text("YouTube 바로가기"),
           style: ElevatedButton.styleFrom(primary: Colors.grey)),
     );

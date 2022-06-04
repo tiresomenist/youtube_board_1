@@ -11,9 +11,6 @@ class YouTubeDetailController extends GetxController{
     liveStreamingDetailController = Get.find(tag: Get.parameters["videoId"]);
     video = liveStreamingDetailController.video;
     youtuberController=Get.put(YoutuberController(video: video),tag:video?.snippet.channelId);
-    print(liveStreamingDetailController.video?.snippet.title ?? "");
-    print(youtuberController.video?.snippet.channelTitle ?? "");
-    print(youtuberController.youtuber.value.snippet?.title ?? "");
     super.onInit();
   }
 
